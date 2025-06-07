@@ -56,7 +56,6 @@ module sram_WB_Wrapper #(
     always_ff @(posedge wb_clk_i, posedge wb_rst_i) begin
         if (wb_rst_i)
             wbs_ack_o <= 0;
-        // TODO: May need to register wb_en
         else if (wb_en & ~wbs_ack_o)
             wbs_ack_o <= 1'b1;
         else
@@ -66,8 +65,8 @@ module sram_WB_Wrapper #(
 	// SRAM Instance
 	sram_32_256_sky130 sram_inst (
         `ifdef USE_POWER_PINS
-            inout vccd1,	// User area 1 1.8V supply
-            inout vssd1,	// User area 1 digital ground
+            .vccd1(vccd1),	// User area 1 1.8V power
+            .vssd1(vssd1),	// User area 1 digital ground
         `endif
         // Write Ports
         .clk0(clk0),
@@ -78,7 +77,7 @@ module sram_WB_Wrapper #(
         .clk1(clk1),
         .csb1(csb1),
         .addr1(addr1),
-        .din1(din1)
+        .dout1(dout1)
 	);
 
 endmodule

@@ -147,7 +147,7 @@ module team_04_tb;
 
 	initial begin
 		$dumpfile("team_04.vcd");
-		$dumpvars(0, team_04_tb);
+		$dumpvars(0, team_04_tb.mprj_io, team_04_tb.uut.chip_core.mprj);
 
 		// // Repeat cycles of 1000 clock edges as needed to complete testbench
 		// repeat (25) begin

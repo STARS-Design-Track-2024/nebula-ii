@@ -155,7 +155,7 @@ module team_01_tb;
 
 	initial begin
 		$dumpfile("team_01.vcd");
-		$dumpvars(0, team_01_tb);
+		$dumpvars(0, team_01_tb.mprj_io, team_01_tb.uut.chip_core.mprj);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (100) begin
@@ -175,7 +175,7 @@ module team_01_tb;
 	// Main Test Bench Process
 	initial begin
 	    mprj_io_in[19:16] = 4'b0;
-		wait(uut.mprj.mprj.team_01_Wrapper.team_01_WB.instance_to_wrap.\en == 1);
+		wait(uut.chip_core.mprj.mprj.team_01_Wrapper.team_01_WB.instance_to_wrap.\en == 1);
 		press_button(4'he, 4'h1);
 		mprj_io_in[19:16] = 4'b0;
 		#(check_bits == {14'b0, 4'h1, 4'hf, 8'd0, 3'b011, 1'b0});

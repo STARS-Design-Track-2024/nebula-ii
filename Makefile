@@ -130,6 +130,7 @@ setup: check_dependencies install check-env install_mcw openlane pdk-with-volare
 
 .PHONY: purdue-setup
 purdue-setup: check_dependencies install check-env install_mcw pdk-with-volare bus-wrap-setup
+	@echo -e "\033[0;32mSetup complete!!\n\033[0m"
 
 # Openlane
 blocks=$(shell cd openlane && find * -maxdepth 0 -type d)
@@ -181,12 +182,16 @@ custom_run_verify =\
     export CARAVEL_VERILOG_PATH=$(TARGET_PATH)/caravel/verilog &&\
     export MCW_ROOT=$(MCW_ROOT) &&\
 	export GCC_PREFIX=riscv64-unknown-elf &&\
-	export GCC_PATH=/package/riscv-gnu-toolchain/bin/ &&\
+	export GCC_PATH=/package/riscv-gnu-toolchain/bin &&\
 	export USER_PROJECT_VERILOG=$(PWD)/verilog &&\
     cd verilog/dv/$* && export SIM=${SIM} && make
 # If you're Aidan, use this:
 # export GCC_PREFIX=riscv32-unknown-elf &&\
-# export GCC_PATH=/opt/riscv32/bin/ &&\
+# export GCC_PATH=/opt/riscv32/bin &&\
+
+# If working on asicfab (for some reason), use this:
+# export GCC_PREFIX=riscv64-unknown-elf &&\
+# export GCC_PATH=/package/asicfab/riscv-gcc/13.2.0/bin &&\
 
 .PHONY: harden
 harden: $(blocks)
@@ -485,11 +490,15 @@ zicsr-fix:
 #Clone BusWrap Repo
 .PHONY: bus-wrap-setup
 bus-wrap-setup: check_dependencies
-	pip install svmodule &&\
+	@pip install svmodule &&\
 	cd $(PWD)/dependencies &&\
-	git clone git@github.com:efabless/BusWrap.git &&\
-	cd BusWrap &&\
-	git checkout e468b6b
+	if [ ! -d "BusWrap" ]; then \
+		git clone git@github.com:efabless/BusWrap.git; \
+		cd BusWrap; \
+		git checkout e468b6b; \
+	else \
+		echo -e "\nBusWrap is already set up!\n"; \
+	fi
 
 #Generate YAML files for teams
 .PHONY: bus-wrap-initialize
@@ -515,10 +524,10 @@ sram-setup:
 # These testbenches must live within the dv/team_##/module_tests directory and will output there too
 .PHONY: tb-module-%
 tb-module-%:
-	@echo "\n------------"
-	@echo "Team Folder: $(firstword $(subst -, ,$*))"
-	@echo "Module Name: $(lastword $(subst -, ,$*))"
-	@echo "------------\n"
+	@echo -e "\n------------"
+	@echo -e "Team Folder: $(firstword $(subst -, ,$*))"
+	@echo -e "Module Name: $(lastword $(subst -, ,$*))"
+	@echo -e "------------\n"
 	export USER_PROJECT_VERILOG=$(PWD)/verilog &&\
 	cd $(PWD)/verilog/dv/$(firstword $(subst -, ,$*))/module_tests &&\
 	make $(lastword $(subst -, ,$*)).vcd
@@ -529,10 +538,10 @@ tb-module-%:
 # Example target: tbsim-source-sample_proj-flex_counter
 .PHONY: tbsim-source-%
 tbsim-source-%:
-	@echo "\n------------"
-	@echo "Team Folder: $(firstword $(subst -, ,$*))"
-	@echo "Module Name: $(lastword $(subst -, ,$*))"
-	@echo "------------\n"
+	@echo -e "\n------------"
+	@echo -e "Team Folder: $(firstword $(subst -, ,$*))"
+	@echo -e "Module Name: $(lastword $(subst -, ,$*))"
+	@echo -e "------------\n"
 	export USER_PROJECT_VERILOG=$(PWD)/verilog &&\
 	cd $(PWD)/verilog/dv/$(firstword $(subst -, ,$*))/module_tests &&\
 	make sim-source-$(lastword $(subst -, ,$*))

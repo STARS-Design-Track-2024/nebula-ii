@@ -141,7 +141,7 @@ module sample_proj_tb;
 	// Signal dump and timeout check
 	initial begin
 		$dumpfile("sample_proj.vcd");
-		$dumpvars(0, sample_proj_tb.mprj_io, sample_proj_tb.uut.mprj);
+		$dumpvars(0, sample_proj_tb.mprj_io, sample_proj_tb.uut.chip_core.mprj);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
 		repeat (1000) begin
