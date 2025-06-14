@@ -5,10 +5,10 @@ Clock Skew (Setup)
 ======================= max_tt_025C_1v80 Corner ===================================
 
 Clock clk
-9.351466 source latency mprj.ffram/wb_clk_i ^
--7.401571 target latency _8643_/CLK ^
+8.924888 source latency _8883_/CLK ^
+-7.210555 target latency _8846_/CLK ^
 0.200000 clock uncertainty
 -0.920000 CRPR
 --------------
-1.229896 setup skew
+0.994333 setup skew
 
