@@ -133,6 +133,7 @@ endif
 openlane_cmd = \
 	"openlane \
 	--run-tag $(OPENLANE_RUN_TAG) \
+	--pdk-root $(PDK_ROOT) \
 	$*/config.json"
 openlane_cmd_interactive = "flow.tcl -it -file $$(realpath ./$*/interactive.tcl)"
 

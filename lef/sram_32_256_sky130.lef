@@ -1,9 +1,8 @@
 VERSION 5.4 ;
-NAMESCASESENSITIVE ON ;
 BUSBITCHARS "[]" ;
 DIVIDERCHAR "/" ;
 UNITS
-  DATABASE MICRONS 2000 ;
+  DATABASE MICRONS 1000 ;
 END UNITS
 MACRO sram_32_256_sky130
    CLASS BLOCK ;
@@ -602,14 +601,14 @@ MACRO sram_32_256_sky130
       USE POWER ; 
       SHAPE ABUTMENT ; 
       PORT
-         LAYER met4 ;
-         RECT  0.0 0.0 1.74 383.405 ;
          LAYER met3 ;
          RECT  0.0 381.665 491.18 383.405 ;
          LAYER met4 ;
-         RECT  489.44 0.0 491.18 383.405 ;
+         RECT  0.0 0.0 1.74 383.405 ;
          LAYER met3 ;
          RECT  0.0 0.0 491.18 1.74 ;
+         LAYER met4 ;
+         RECT  489.44 0.0 491.18 383.405 ;
       END
    END vccd1
    PIN vssd1
