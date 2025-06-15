@@ -2,7 +2,7 @@
 
 module sram_WB_Wrapper #(
 	parameter DATA_WIDTH = 32,
-    parameter ADDR_WIDTH = 8
+    parameter ADDR_WIDTH = 10
 )
 (
 `ifdef USE_POWER_PINS
