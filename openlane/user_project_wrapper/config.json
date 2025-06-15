@@ -81,7 +81,7 @@
         "dir::../../verilog/gl/team_10.v",
         "dir::../../verilog/gl/team_11.v",
         "dir::../../verilog/gl/team_12.v",
-        "dir::../../verilog/rtl/sram/sram_32_256_sky130.v"
+        "dir::../../verilog/rtl/sram/sram_32_1024_sky130.v"
     ],
     "EXTRA_LEFS": [
         "dir::../../lef/team_01.lef",
@@ -96,7 +96,7 @@
         "dir::../../lef/team_10.lef",
         "dir::../../lef/team_11.lef",
         "dir::../../lef/team_12.lef",
-        "dir::../../lef/sram_32_256_sky130.lef"
+        "dir::../../lef/sram_32_1024_sky130.lef"
     ],
     "EXTRA_GDS_FILES": [
         "dir::../../gds/team_01.gds",
@@ -111,7 +111,7 @@
         "dir::../../gds/team_10.gds",
         "dir::../../gds/team_11.gds",
         "dir::../../gds/team_12.gds",
-        "dir::../../gds/sram_32_256_sky130.gds"
+        "dir::../../gds/sram_32_1024_sky130.gds"
     ],
     "EXTRA_LIBS": [
         "dir::../../lib/team_01.lib",

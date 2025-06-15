@@ -165,7 +165,7 @@
         "/home/misrrael2003/nebula-ii/lef/team_10.lef",
         "/home/misrrael2003/nebula-ii/lef/team_11.lef",
         "/home/misrrael2003/nebula-ii/lef/team_12.lef",
-        "/home/misrrael2003/nebula-ii/lef/sram_32_256_sky130.lef"
+        "/home/misrrael2003/nebula-ii/lef/sram_32_1024_sky130.lef"
     ],
     "EXTRA_VERILOG_MODELS": [
         "/home/misrrael2003/nebula-ii/verilog/gl/team_01.v",
@@ -180,7 +180,7 @@
         "/home/misrrael2003/nebula-ii/verilog/gl/team_10.v",
         "/home/misrrael2003/nebula-ii/verilog/gl/team_11.v",
         "/home/misrrael2003/nebula-ii/verilog/gl/team_12.v",
-        "/home/misrrael2003/nebula-ii/verilog/rtl/sram/sram_32_256_sky130.v"
+        "/home/misrrael2003/nebula-ii/verilog/rtl/sram/sram_32_1024_sky130.v"
     ],
     "EXTRA_SPICE_MODELS": null,
     "EXTRA_LIBS": [
@@ -210,7 +210,7 @@
         "/home/misrrael2003/nebula-ii/gds/team_10.gds",
         "/home/misrrael2003/nebula-ii/gds/team_11.gds",
         "/home/misrrael2003/nebula-ii/gds/team_12.gds",
-        "/home/misrrael2003/nebula-ii/gds/sram_32_256_sky130.gds"
+        "/home/misrrael2003/nebula-ii/gds/sram_32_1024_sky130.gds"
     ],
     "FALLBACK_SDC_FILE": "/home/misrrael2003/nebula-ii/openlane/user_project_wrapper/base_user_project_wrapper.sdc",
     "RUN_TAP_ENDCAP_INSERTION": true,

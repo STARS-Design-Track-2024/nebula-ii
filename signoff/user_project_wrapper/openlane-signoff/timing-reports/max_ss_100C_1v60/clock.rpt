@@ -19,24 +19,24 @@ Clock clk
 rise -> rise
     min     max
 4.650000 5.570000 source latency
-8.809691         network latency _8846_/CLK
-        10.719801 network latency mprj.team_12_Wrapper.team_12_WB.instance_to_wrap/clk
+9.080591         network latency _8824_/CLK
+        11.004939 network latency mprj.team_12_Wrapper.team_12_WB.instance_to_wrap/clk
 ---------------
-13.459692 16.289803 latency
-        2.830110 skew
+13.730592 16.574940 latency
+        2.844347 skew
 
 fall -> fall
     min     max
 4.650000 5.570000 source latency
-8.863196         network latency _8846_/CLK
-        10.061726 network latency mprj.team_12_Wrapper.team_12_WB.instance_to_wrap/clk
+9.124175         network latency _8824_/CLK
+        10.308711 network latency mprj.team_12_Wrapper.team_12_WB.instance_to_wrap/clk
 ---------------
-13.513196 15.631725 latency
-        2.118529 skew
+13.774175 15.878711 latency
+        2.104535 skew
 
 
 
 ===========================================================================
 report_clock_min_period
 ============================================================================
-clk period_min = 44.95 fmax = 22.25
+clk period_min = 44.44 fmax = 22.50
