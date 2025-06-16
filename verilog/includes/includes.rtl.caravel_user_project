@@ -357,4 +357,4 @@
 
 # SRAM
 -v  $(USER_PROJECT_VERILOG)/rtl/sram/sram_WB_Wrapper.sv
--v  $(USER_PROJECT_VERILOG)/rtl/sram/sram_32_256_sky130.v
+-v  $(USER_PROJECT_VERILOG)/rtl/sram/sram_32_1024_sky130.v
