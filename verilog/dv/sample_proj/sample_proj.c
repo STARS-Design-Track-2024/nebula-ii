@@ -106,6 +106,22 @@ void main()
 	// Now, apply configuration
 	reg_mprj_xfer = 1;
 	while (reg_mprj_xfer == 1);
+	
+	// ****************************************
+	// PLL Configuration (Configure to 50 MHz)
+	// ****************************************
+
+	// Set PLL enable, no DCO mode
+    reg_hkspi_pll_ena = 0x1;
+
+	// Set both PLL output dividers to 0x03
+    reg_hkspi_pll_source = 0x1B;
+
+	// Write 0xF to feedback divider (was at a default of 0x04)
+    reg_hkspi_pll_divider = 0x0F;
+
+	// Disable PLL bypass
+    reg_hkspi_pll_bypass = 0x0;
 
 	// Configure All LA probes as inputs to the cpu 
 	reg_la0_oenb = reg_la0_iena = 0x00000000;    // [31:0]

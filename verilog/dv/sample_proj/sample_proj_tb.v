@@ -15,7 +15,7 @@
 
 `default_nettype none
 
-`timescale 1 ns / 1 ps
+`timescale 1 ns / 100 ps
 
 module sample_proj_tb;
 	// Signals declaration
@@ -35,8 +35,8 @@ module sample_proj_tb;
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 	assign clock_in = clock;
 
-	// Clock generation
-	always #12.5 clock <= (clock === 1'b0);
+	// Clock generation (10 MHz)
+	always #50 clock <= (clock === 1'b0);
 
 	initial begin
 		clock = 0;

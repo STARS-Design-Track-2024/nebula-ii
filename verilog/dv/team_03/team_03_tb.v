@@ -15,7 +15,7 @@
 
 `default_nettype none
 
-`timescale 1 ns / 1 ps
+`timescale 1 ns / 100 ps
 
 module team_03_tb;
 	localparam CLK_PERIOD = 25;
@@ -36,8 +36,8 @@ module team_03_tb;
 	assign mprj_io[3] = (CSB == 1'b1) ? 1'b1 : 1'bz;
 	assign clock_in = clock;
 
-	// Clock generation
-	always #12.5 clock <= (clock === 1'b0);
+	// Clock generation (10 MHz)
+	always #50 clock <= (clock === 1'b0);
 
 	initial begin
 		clock = 0;
@@ -170,7 +170,7 @@ module team_03_tb;
 		// `endif
 
 		// Run for a lot of time
-		#1500000;
+		#4000000;
 
 		// button_push_start_pause;
 		// #3000050;

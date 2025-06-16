@@ -116,13 +116,29 @@ void main()
 	reg_mprj_xfer = 1;
 	while (reg_mprj_xfer == 1);
 
+    // ****************************************
+	// PLL Configuration (Configure to 50 MHz)
+	// ****************************************
+
+	// Set PLL enable, no DCO mode
+    reg_hkspi_pll_ena = 0x1;
+
+	// Set both PLL output dividers to 0x03
+    reg_hkspi_pll_source = 0x1B;
+
+	// Write 0xF to feedback divider (was at a default of 0x04)
+    reg_hkspi_pll_divider = 0x0F;
+
+	// Disable PLL bypass
+    reg_hkspi_pll_bypass = 0x0;
+
 	// Configure All LA probes as inputs to the cpu 
 	reg_la0_oenb = reg_la0_iena = 0x00000000;    // [31:0]
 	reg_la1_oenb = reg_la1_iena = 0x00000000;    // [63:32]
 	reg_la2_oenb = reg_la2_iena = 0x00000000;    // [95:64]
 	reg_la3_oenb = reg_la3_iena = 0x00000000;    // [127:96]
 
-	// Configure GPIOs outputs to be selected by sample project
+	// Configure GPIOs outputs to be selected by Team 03
 
 	reg_gpio_PIN_0TO7 = 0x33333333;
 	reg_gpio_PIN_8TO15 = 0x33333333;
